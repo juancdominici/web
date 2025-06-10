@@ -1,0 +1,25 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "pipeline": {
+        "dev": {
+            "cache": false
+        },
+        "build": {
+            "dependsOn": [
+                "^build"
+            ],
+            "outputs": [
+                "dist/**",
+                ".svelte-kit/**",
+                ".svelte/**",
+                "bin/**"
+            ]
+        },
+        "deploy": {
+            "dependsOn": [
+                "build"
+            ],
+            "cache": false
+        }
+    }
+}

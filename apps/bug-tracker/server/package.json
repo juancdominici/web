@@ -1,0 +1,12 @@
+{
+    "name": "bug-tracker-server",
+    "scripts": {
+        "build": "go build -ldflags=\"-s -w\" -o bin/server ./",
+        "dev": "npm run build && serverless offline --stage dev",
+        "deploy": "npm run build && serverless deploy --stage prod"
+    },
+    "devDependencies": {
+        "serverless": "^3.0.0",
+        "serverless-offline": "^13.0.0"
+    }
+}

@@ -1,0 +1,27 @@
+service: bug-tracker-go
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: go1.x
+  region: us-east-1
+
+functions:
+  api:
+    handler: bin/server
+    events:
+      - http:
+          path: /
+          method: post
+      - http:
+          path: /
+          method: get
+
+package:
+  individually: true
+
+build:
+  binary: main
+  goBuildFlags: -ldflags="-s -w"
